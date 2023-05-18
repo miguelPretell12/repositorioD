@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+</head>
+<body>
+	<form action="" method="post" autocomplete="off" th:action="@{/actualizar}" th:object="${alumno}" >
+		<input type="hidden" th:field="*{idalumno}" name="id">
+		<label>Nombre</label>
+		<input type="text" th:field="*{nombre}" name="nombre">
+		<br>
+		
+		<label>Apellido</label>
+		<input type="text" th:field="*{apellido}" name="apellido">
+		<br>
+		
+		<label>Telefono</label>
+		<input type="text" th:field="*{telefono}"name="telefono">
+		<br>
+		
+		<label>Correo</label>
+		<input type="text" th:field="*{correo}" name="correo">
+		<br>
+		
+		<input type="submit" value ="Actualizar">
+		
+	</form>
+</body>
+</html>

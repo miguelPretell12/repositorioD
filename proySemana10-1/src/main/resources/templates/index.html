@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h2>Listado de Alumnos</h2>
+		<a th:href="@{/new}" class="btn btn-primary">Nuevo</a>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Precio</th>
+					<th>STK</th>
+					<th>Fecha</th>
+					<th>descripcion</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pro:${lista_producto}">
+					<td th:text="${pro.idpro}"></td>
+					<td th:text="${pro.nompro}"></td>
+					<td th:text="${pro.prepro}"></td>
+					<td th:text="${pro.stkpro}"></td>
+					<td th:text="${pro.fvcpro}"></td>
+					<td th:text="${pro.despro}"></td>
+					<td>
+						<a th:href="@{/editar/}+ ${pro.idpro}">Editar</a>
+						<a th:href="@{/delete/(idpro=${pro.idpro})}">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

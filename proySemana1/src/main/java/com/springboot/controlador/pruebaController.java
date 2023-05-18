@@ -1,0 +1,12 @@
+package com.springboot.controlador;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class pruebaController {
+	@RequestMapping("/index")
+	public String abrir() {
+		return "index";
+	}
+}

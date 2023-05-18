@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class=" container">
+		<h2>Nuevo Alumno</h2>
+		<form name="frmNuevo" th:object="${producto}" th:action="@{/guardar}" method="post" autocomplete="off" >
+			<input type="text" th:field="*{nompro}" class="form-control" required placeholder="nombre">
+			<input type="number" step="0.05" th:field="*{prepro}" class="form-control" required placeholder="precio">
+			<input type="int" th:field="*{stkpro}" class="form-control" placeholder="stkpro">
+			<input type="date" th:field="*{fvcpro}" class="form-control" placeholder="fvcpro">
+			<textarea rows="10" cols="20" th:field="*{despro}" class="form-control"></textarea>
+			<input type="submit" value="Guardar" class="btn btn-primary">
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>CRUD-Buscar Libros</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Buscar Libros</h1>
+		<form action="" method="get" autocomplete="off" th:action="@{/buscarlib}" th:object="${libro}">
+			<div class="mb-3">
+				<label for="exampleFormControlInput1" class="form-label">Titulo</label>
+				<input type="text" class="form-control" th:field="*{titulo}" name="titulo" placeholder="titulo">
+			</div>
+			<div class="mb-3">
+				<input type="submit" class="btn btn-success">
+			</div>
+		</form>
+		<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Titulo</th>
+					<th>Fecha Publicacion</th>
+					<th>Autor</th>
+					<th>Editorial</th>
+					<th>Idioma</th>
+					<th>N° Páginas</th>
+					<th>ISBN</th>
+					<th>Descripcion</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr	th:object="${libro}" >
+					<td th:text="*{idLibro}"></td>
+					<td th:text="*{titulo}"></td>
+					<td th:text="*{fechaPublicacion}"></td>
+					<td th:text="*{autor}"></td>
+					<td th:text="*{editorial}"></td>
+					<td th:text="*{idioma}"></td>
+					<td th:text="*{nroPaginas}"></td>
+					<td th:text="*{isbn}"></td>
+					<td th:text="*{descripcion}"></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</body>
+</html>

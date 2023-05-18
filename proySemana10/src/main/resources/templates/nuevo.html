@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="col-4">
+		<h2>Nuevo Alumno</h2>
+		<form name="frmNuevo" th:object="${alumno}" th:action="@{/guardar}" method="post" autocomplete="off" >
+			<input type="text" th:field="*{nombre}" class="form-control" required placeholder="nombre">
+			<input type="text" th:field="*{apellido}" class="form-control" required placeholder="apellido">
+			<input type="text" th:field="*{telefono}" class="form-control" placeholder="telefono">
+			<input type="text" th:field="*{correo}" class="form-control" placeholder="correo">
+			<input type="submit" value="Guardar" class="btn btn-primary">
+		</form>
+	</div>
+</body>
+</html>

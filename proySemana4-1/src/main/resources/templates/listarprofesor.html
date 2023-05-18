@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="utf-8">
+<title>Registro Profesor</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+</head>
+<body>
+	<div class="container p-2">
+		<a href="/nuevo" class="btn btn-primary">Crear Profesor</a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Direccion</th>
+					<th>Telefono</th>
+					<th>Titulacion</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pr:${listaprof}">
+					<td th:text="${pr.nombre}" ></td>
+					<td th:text="${pr.apellido}"></td>
+					<td th:text="${pr.direccion}"></td>
+					<td th:text="${pr.telefono}"></td>
+					<td th:text="${pr.titulacion}"></td>
+					<td th:text="${pr.email}"></td>
+					<td>
+						<a th:href="@{/borrar/{id}(id=${pr.idprofesores})}">Borrar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</body>
+</html>

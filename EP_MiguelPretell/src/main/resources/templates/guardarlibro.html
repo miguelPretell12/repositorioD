@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>CRUD-Registrar Libros</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1>Listado de Libros</h1>
+		
+		<button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  			Guardar Libro
+		</button>
+		
+		<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Titulo</th>
+					<th>Fecha Publicacion</th>
+					<th>Autor</th>
+					<th>Editorial</th>
+					<th>Idioma</th>
+					<th>N° Páginas</th>
+					<th>ISBN</th>
+					<th>Descripcion</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr	th:each="lib:${listarlibro}">
+					<td th:text="${lib.idLibro}"></td>
+					<td th:text="${lib.titulo}"></td>
+					<td th:text="${lib.fechaPublicacion}"></td>
+					<td th:text="${lib.autor}"></td>
+					<td th:text="${lib.editorial}"></td>
+					<td th:text="${lib.idioma}"></td>
+					<td th:text="${lib.nroPaginas}"></td>
+					<td th:text="${lib.isbn}"></td>
+					<td th:text="${lib.descripcion}"></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		
+		
+	</div>
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Registrar Libro</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		        <form action="" method="post" autocomplete="off" th:action="@{/guardar}" th:object="${libro}">
+		        	<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Titulo</label>
+					  <input type="text" class="form-control" th:field="*{titulo}" name="titulo" placeholder="titulo">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Fecha de Publicación</label>
+					  <input type="date" class="form-control" th:field="*{fechaPublicacion}" name="fechaPublicacion" placeholder="Fecha de Publicacion">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Autor del Libro</label>
+					  <input type="text" class="form-control" th:field="*{autor}" name="autor" placeholder="autor del libro">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Editorial</label>
+					  <input type="text" class="form-control" th:field="*{editorial}" name="editorial" placeholder="editorial">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Idioma</label>
+					  <select class="form-control" th:field="*{idioma}" name="idioma">
+					  	<option value="espaniol">ES</option>
+					  	<option value="ingles">EN</option>
+					  	<option value="frances">FR</option>
+					  </select>
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">N° Páginas</label>
+					  <input type="number" class="form-control" th:field="*{nroPaginas}" name="nroPaginas" placeholder="nro de páginas">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">ISBN</label>
+					  <input type="text" class="form-control" th:field="*{isbn}" name="isbn" placeholder="ISBN">
+					</div>
+					<div class="mb-3">
+					  <label for="exampleFormControlInput1" class="form-label">Descripcion</label>
+					  <textarea rows="3" class="form-control" th:field="*{descripcion}" name="descripcion"></textarea>
+					</div>
+					<div class="modal-footer">
+		        		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		        		<button type="submit" class="btn btn-primary">Guardar</button>
+		      		</div>
+		        </form>
+		      </div>
+		    </div>
+		  </div>
+	</div>
+	
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

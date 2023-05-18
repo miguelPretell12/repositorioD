@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="post" th:action="@{/guardar}" th:object="${curso}" autocomplete="off">
+		<p>
+			<input type="text" th:field="*{nomcur}" placeholder="">
+		</p>
+		<p>
+			<input type="text" th:field="*{crecur}" placeholder="">
+		</p>
+		<p>
+			<input type="text" th:field="*{descur}" placeholder="">
+		</p>
+		<p>
+			<select th:field="*{categoria} ">
+				<option th:each="cate:${listacategoria}" th:value="${cate.idcat}" th:text=${cate.nomcat}></option>
+			</select>
+		</p>
+		<p>
+			<input type="submit">
+		</p>
+	</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Index</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h2>Listado de Cursos</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Creditos</th>
+					<th>Descripcion</th>
+					<th>Categoria</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cur:${listacurso}">
+					<td th:text="${cur.idcur}" ></td>
+					<td th:text="${cur.nomcur}" ></td>
+					<td th:text="${cur.crecur}" ></td>
+					<td th:text="${cur.descur}" ></td>
+					<td th:text="${cur.categoria.nomcat}" ></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</body>
+</html>
